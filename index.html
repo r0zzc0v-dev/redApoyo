@@ -5,31 +5,111 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>La familia como red de apoyo — Actividad</title>
   <style>
-    :root{--accent:#2b8aef;--card:#ffffff;--bg:#f4f6fb;--muted:#666}
+    :root {
+      --accent:#2b8aef;
+      --card:#ffffff;
+      --bg:#f4f6fb;
+      --muted:#666;
+    }
     *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:#1b1b1b}
-    .container{max-width:1000px;margin:32px auto;padding:24px}
-    header{display:flex;gap:16px;align-items:center}
-    header .logo{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#6fb1ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
-    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(20,30,60,0.06);margin-top:18px}
+    body{
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      margin:0;
+      background:var(--bg);
+      color:#1b1b1b;
+    }
+    .container{max-width:1000px;margin:32px auto;padding:16px}
+    header{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+    header .logo{
+      width:72px;height:72px;border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),#6fb1ff);
+      display:flex;align-items:center;justify-content:center;
+      color:white;font-weight:700;font-size:1.4rem;
+    }
+    .card{
+      background:var(--card);
+      border-radius:12px;
+      padding:18px;
+      box-shadow:0 6px 18px rgba(20,30,60,0.06);
+      margin-top:18px;
+    }
     h1{margin:0;font-size:1.4rem}
     p.lead{margin:6px 0 0;color:var(--muted)}
-    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px}
-    @media (max-width:880px){.grid{grid-template-columns:1fr}}
-    iframe{width:100%;height:220px;border-radius:8px;border:0}
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:18px;
+      margin-top:18px;
+    }
+    @media (max-width:880px){
+      .grid{grid-template-columns:1fr}
+    }
+    iframe, video{width:100%;height:auto;border-radius:8px;border:0}
     label{display:block;font-weight:600;margin-top:10px}
-    textarea, input[type=text], select{width:100%;padding:10px;border-radius:8px;border:1px solid #e2e8f0;margin-top:6px;font-size:0.95rem}
+    textarea, input[type=text], select{
+      width:100%;
+      padding:10px;
+      border-radius:8px;
+      border:1px solid #e2e8f0;
+      margin-top:6px;
+      font-size:0.95rem;
+    }
     .small{font-size:0.9rem;color:var(--muted)}
-    table{width:100%;border-collapse:collapse;margin-top:10px}
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:10px;
+      font-size:0.9rem;
+    }
     th,td{padding:8px;border-bottom:1px solid #eef2f7;text-align:left}
-    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;font-weight:600;margin-top:12px}
-    .photos{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-    .photos img{width:120px;height:80px;object-fit:cover;border-radius:8px;border:2px solid #fff;box-shadow:0 6px 18px rgba(10,20,40,0.06)}
+    .btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:10px;
+      background:var(--accent);
+      color:white;
+      text-decoration:none;
+      font-weight:600;
+      margin-top:12px;
+      transition:0.2s;
+    }
+    .btn:hover{opacity:0.9}
+    .photos{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:8px;
+    }
+    .photos img{
+      width:100%;
+      max-width:140px;
+      height:auto;
+      object-fit:cover;
+      border-radius:8px;
+      border:2px solid #fff;
+      box-shadow:0 6px 18px rgba(10,20,40,0.06)
+    }
     .toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
     .muted{color:var(--muted)}
     footer{margin-top:18px;font-size:0.9rem;color:var(--muted)}
     .print-hide{display:inline-block}
-    @media print{.print-hide{display:none!important};body{background:white}}
+    @media print{
+      .print-hide{display:none!important}
+      body{background:white}
+    }
+
+    /* --- Mejoras para pantallas pequeñas --- */
+    @media (max-width:600px){
+      h1{font-size:1.1rem}
+      .container{padding:12px}
+      header{flex-direction:column;align-items:flex-start}
+      header .logo{width:60px;height:60px;font-size:1.2rem}
+      table{font-size:0.8rem}
+      th,td{padding:6px}
+      .toolbar{flex-direction:column;align-items:stretch}
+      .btn{width:100%;text-align:center}
+      .photos img{max-width:100px}
+    }
   </style>
 </head>
 <body>
@@ -45,7 +125,6 @@
     <div class="grid">
       <main class="card">
         <h2>Reflexión colectiva</h2>
-        
 
         <label>Miembros presentes (Maria Esther Moran | José Enrique Lara)</label>
         <input id="members" type="text" placeholder="Ej: Mi mamá y yo" />
@@ -88,19 +167,22 @@
 
       <aside class="card">
         <h3>Video</h3>
-        <!-- Video adaptado -->
-        <video controls style="width:100%;border-radius:8px;">
+        <video controls>
           <source src="https://raw.githubusercontent.com/r0zzc0v-dev/redApoyo/redDeApoyo/FamiliaApoyo.mp4" type="video/mp4">
           Tu navegador no soporta videos.
         </video>
       
         <h4 style="margin-top:12px">Evidencia fotográfica</h4>
-        <li> (a mi mama no le gusta tomarse fotos asi que genere una con IA como chistexd)</li>
+        <li>(a mi mama no le gusta tomarse fotos asi que genere una con IA como chiste xd)</li>
         
         <img src="https://raw.githubusercontent.com/r0zzc0v-dev/redApoyo/redDeApoyo/iaMamaYyo.png" 
              alt="Foto IA mamá y yo" 
              style="width:100%;border-radius:8px;box-shadow:0 6px 18px rgba(10,20,40,0.06)">
         
+        <!-- Input para cargar fotos -->
+        <label for="photo-input" style="margin-top:10px;font-weight:600">Subir fotos (máx 6)</label>
+        <input id="photo-input" type="file" accept="image/*" multiple>
+
         <!-- Contenedor de las fotos -->
         <div id="photos" class="photos"></div>
       </aside>
@@ -141,9 +223,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
