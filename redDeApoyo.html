@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>La familia como red de apoyo — Actividad</title>
+  <style>
+    :root{--accent:#2b8aef;--card:#ffffff;--bg:#f4f6fb;--muted:#666}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:#1b1b1b}
+    .container{max-width:1000px;margin:32px auto;padding:24px}
+    header{display:flex;gap:16px;align-items:center}
+    header .logo{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#6fb1ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(20,30,60,0.06);margin-top:18px}
+    h1{margin:0;font-size:1.4rem}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px}
+    @media (max-width:880px){.grid{grid-template-columns:1fr}}
+    iframe{width:100%;height:220px;border-radius:8px;border:0}
+    label{display:block;font-weight:600;margin-top:10px}
+    textarea, input[type=text], select{width:100%;padding:10px;border-radius:8px;border:1px solid #e2e8f0;margin-top:6px;font-size:0.95rem}
+    .small{font-size:0.9rem;color:var(--muted)}
+    table{width:100%;border-collapse:collapse;margin-top:10px}
+    th,td{padding:8px;border-bottom:1px solid #eef2f7;text-align:left}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;font-weight:600;margin-top:12px}
+    .photos{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .photos img{width:120px;height:80px;object-fit:cover;border-radius:8px;border:2px solid #fff;box-shadow:0 6px 18px rgba(10,20,40,0.06)}
+    .toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .muted{color:var(--muted)}
+    footer{margin-top:18px;font-size:0.9rem;color:var(--muted)}
+    .print-hide{display:inline-block}
+    @media print{.print-hide{display:none!important};body{background:white}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">F</div>
+      <div>
+        <h1>La familia como red de apoyo - Jose Enrique Lara</h1>
+        <p class="lead">Actividad familiar — Fortalecimiento de vínculos</p>
+      </div>
+    </header>
+
+    <div class="card">
+      <strong>Instrucciones rápidas</strong>
+      <ul class="small">
+        <li>Reúnanse en un lugar cómodo y vean juntos el video (está incrustado a la derecha).</li>
+        <li>Respondan las preguntas en los recuadros. Pueden editar los textos para que reflejen lo que dijeron en familia.</li>
+        <li>Hagan su esquema de apoyo (tabla editable) y suban fotos de la actividad.</li>
+        <li>Impriman o guarden como PDF para enviar a astrid.orellana@fusalmo.org</li>
+      </ul>
+    </div>
+
+    <div class="grid">
+      <main class="card">
+        <h2>Reflexión colectiva</h2>
+        <p class="small">Vean el video y luego completen las respuestas. Si la familia quiere, escriban los nombres de quienes contestan.</p>
+
+        <label>Miembros presentes (nombres)</label>
+        <input id="members" type="text" placeholder="Ej: Mi mamá y yo" />
+
+        <label>a) ¿Cuál es la situación del padre del video y cómo se percibe la actitud del hijo al inicio?</label>
+        <textarea id="q-a" rows="6">El padre enfrenta una dificultad llamada "paro" en españa es una ayuda monetaria para las personas que no encuentran trabajo y el hijo muestra un poco de verguenza al verlo pero luego reflexiona y cambia de parecer.</textarea>
+
+        <label>b) ¿De qué manera el padre asume la situación?</label>
+        <textarea id="q-b" rows="2">Con fortaleza, paciencia y esperanza, demostrando que puede salir adelante si se apoya y pide ayuda de la familia.</textarea>
+
+        <label>c) ¿Qué nos lleva a pensar este video de nuestras situaciones personales?</label>
+        <textarea id="q-c" rows="2">Nos recuerda valorar a la familia y no postergar expresiones de afecto y que en la familia es parte fundamental para volver a levantarte.</textarea>
+
+        <label>d) ¿Qué podemos decir del papel de la familia en la consecución de las metas personales?</label>
+        <textarea id="q-d" rows="2">La familia apoya emocionalmente, con recursos y motivación.</textarea>
+
+        <h3 style="margin-top:14px">Esquema / Plan de apoyo familiar</h3>
+        <p class="small">Editar la tabla para describir cómo apoyarán al participante del curso.</p>
+
+        <table id="plan-table">
+          <thead>
+            <tr><th>Meta personal</th><th>Acciones de apoyo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td contenteditable>Terminar estudios</td><td contenteditable>Crear horario de estudio, ayudar con materiales, apoyo económico si hace falta.</td></tr>
+            <tr><td contenteditable>Conseguir trabajo</td><td contenteditable>Acompañar en búsqueda, preparar CV, practicar entrevistas.</td></tr>
+            <tr><td contenteditable>Mejorar salud</td><td contenteditable>Hacer ejercicio juntos, mejorar la alimentación, acompañamiento emocional.</td></tr>
+          </tbody>
+        </table>
+
+        <div style="margin-top:10px" class="toolbar">
+          <button class="btn" onclick="addRow()">Agregar fila</button>
+          <button class="btn" onclick="downloadHTML()">Guardar página (HTML)</button>
+          <button class="btn" onclick="window.print()">Imprimir / Guardar en PDF</button>
+        </div>
+
+        <h3 style="margin-top:18px">Conclusión familiar</h3>
+        <textarea id="conclusion" rows="3">Como familia nos comprometemos a apoyarnos con amor, paciencia y acciones concretas para alcanzar nuestras metas.</textarea>
+
+      </main>
+
+      <aside class="card">
+        <h3>Video (obligatorio)</h3>
+        <!-- YouTube embed -->
+        <link href="../FamiliaApoyo.mp4"
+
+        <h4 style="margin-top:12px">Evidencia fotográfica</h4>
+
+      </aside>
+    </div>
+
+    <footer class="muted">Documento generado para la actividad "La familia como red de apoyo" — Ajusta los textos antes de enviar. Impresión optimizada.</footer>
+  </div>
+
+  <script>
+    function addRow(){
+      const tbody = document.querySelector('#plan-table tbody');
+      const tr = document.createElement('tr');
+      tr.innerHTML = '<td contenteditable>Nuevo objetivo</td><td contenteditable>Acción de apoyo</td>';
+      tbody.appendChild(tr);
+    }
+
+    document.getElementById('photo-input').addEventListener('change', function(e){
+      const out = document.getElementById('photos');
+      out.innerHTML='';
+      Array.from(e.target.files).slice(0,6).forEach(file => {
+        const img = document.createElement('img');
+        img.src = URL.createObjectURL(file);
+        img.onload = () => URL.revokeObjectURL(img.src);
+        out.appendChild(img);
+      });
+    });
+
+    function prepareMail(){
+      const subject = encodeURIComponent('Actividad: La familia como red de apoyo');
+      const members = document.getElementById('members').value;
+      const a = document.getElementById('q-a').value;
+      const b = document.getElementById('q-b').value;
+      const c = document.getElementById('q-c').value;
+      const d = document.getElementById('q-d').value;
+      const conclusion = document.getElementById('conclusion').value;
+      // Prepare brief body (users must attach photos and HTML/PDF manually)
+      let body = 'Miembros: '+members+'%0D%0A%0D%0A';
+      body += 'a) '+encodeURIComponent(a)+'%0D%0A%0D%0A';
+      body += 'b) '+encodeURIComponent(b)+'%0D%0A%0D%0A';
+      body += 'c) '+encodeURIComponent(c)+'%0D%0A%0D%0A';
+      body += 'd) '+encodeURIComponent(d)+'%0D%0A%0D%0A';
+      body += 'Conclusión: '+encodeURIComponent(conclusion)+'%0D%0A%0D%0A';
+      body += 'Adjunto: fotos y el documento de la actividad.';
+      const mailto = 'mailto:astrid.orellana@fusalmo.org?subject='+subject+'&body='+body;
+      window.location.href = mailto;
+    }
+
+    function downloadHTML(){
+      const html = '<!doctype html>'+document.documentElement.outerHTML;
+      const blob = new Blob([html],{type:'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'Actividad_Familiar_Red_de_Apoyo.html';
+      document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
